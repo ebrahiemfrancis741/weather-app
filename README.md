@@ -1,2 +1,4 @@
-# webpack-template
-A template using webpack. This comes with some basic configuration.
+# weather-app
+
+An app that uses visualcrossing.com weather api to display simple 
+data about the weather in a user specified location
