@@ -23,6 +23,8 @@ header {
 }
 
 main {
+  background-color: rgb(230, 230, 230);
+  min-height: 100vh;
   padding: 24px;
 
   > form {
@@ -33,6 +35,12 @@ main {
       border-right: none;
       padding: 4px 12px 4px 12px;
       font-size: 0.8rem;
+
+      &:focus{
+        outline: none;
+        border: 1px solid black;
+        border-right: none;
+      }
     }
 
     > button {
@@ -42,8 +50,8 @@ main {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
 
-      &:hover{
-        background-color: rgb(0, 0, 80)
+      &:hover {
+        background-color: rgb(0, 0, 120);
       }
     }
   }
