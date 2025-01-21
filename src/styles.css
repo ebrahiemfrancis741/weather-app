@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Rubik";
+  font-size: 24px;
+}
+
+header {
+  background-color: rgb(200, 200, 200);
+  padding: 24px;
+  > h1 {
+    font-size: 2rem;
+  }
+}
+
+main {
+  padding: 24px;
+
+  > form {
+    display: flex;
+
+    > input {
+      border: 1px solid rgb(200, 200, 200);
+      border-right: none;
+      padding: 4px 12px 4px 12px;
+      font-size: 0.8rem;
+    }
+
+    > button {
+      border: 0;
+      background-color: black;
+      padding: 0.3rem;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+
+      &:hover{
+        background-color: rgb(0, 0, 80)
+      }
+    }
+  }
+}
