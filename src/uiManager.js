@@ -26,6 +26,7 @@ function createWeatherElement(data) {
   let temperature = document.createElement("p");
   let conditions = document.createElement("p");
 
+  weatherContainer.replaceChildren();
   weatherContainer.appendChild(weatherElement);
   weatherElement.classList.add("weather");
   weatherElement.appendChild(weatherElementImage);
