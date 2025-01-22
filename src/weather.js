@@ -23,7 +23,7 @@ async function getRequiredWeatherData(location) {
   for (let i = 0; i < 3; i++) {
     requiredData.push({
       location: data.resolvedAddress,
-      datetime: data.days[i].datetime,
+      date: data.days[i].datetime,
       temperature: data.days[i].temp,
       description: data.days[i].description,
     });
