@@ -1,4 +1,5 @@
 import { getRequiredWeatherData } from "./weather";
+import { getImage } from "./image";
 
 function btnSearchEventHandler() {
   let btnSearch = document.querySelector("#btnSearch");
@@ -9,7 +10,6 @@ function btnSearchEventHandler() {
       for (let i = 0; i < data.length; i++) {
         createWeatherElement(data[i]);
       }
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -24,20 +24,27 @@ function createWeatherElement(data) {
   let location = document.createElement("p");
   let date = document.createElement("p");
   let temperature = document.createElement("p");
-  let description = document.createElement("p");
+  let conditions = document.createElement("p");
 
   weatherContainer.appendChild(weatherElement);
+  weatherElement.classList.add("weather");
   weatherElement.appendChild(weatherElementImage);
-  // weatherElementImage.src = "";
+  weatherElementImage.classList.add("weather-image");
+  getImage(`weather: ${data.icon}`).then(result =>{
+    console.log(result.data.images.original.url);
+    weatherElementImage.src = result.data.images.original.url;
+  });
   weatherElement.appendChild(weatherElementData);
+  weatherElementData.classList.add("weather-data");
+
   weatherElementData.appendChild(location);
   location.textContent = data.location;
   weatherElementData.appendChild(date);
   date.textContent = data.date;
   weatherElementData.appendChild(temperature);
   temperature.textContent = `${data.temperature} \u00B0C`;
-  weatherElementData.appendChild(description);
-  description.textContent = data.description;
+  weatherElementData.appendChild(conditions);
+  conditions.textContent = data.conditions;
 }
 
 function setupEventHandlers() {

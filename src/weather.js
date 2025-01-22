@@ -25,10 +25,11 @@ async function getRequiredWeatherData(location) {
       location: data.resolvedAddress,
       date: data.days[i].datetime,
       temperature: data.days[i].temp,
-      description: data.days[i].description,
+      conditions: data.days[i].conditions,
+      icon: data.days[i].icon,
     });
   }
   return requiredData;
 }
 
-export {getRequiredWeatherData};
+export { getRequiredWeatherData };

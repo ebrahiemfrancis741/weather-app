@@ -27,6 +27,25 @@ main {
   min-height: 100vh;
   padding: 24px;
 
+  > div.weather-container {
+    margin-top: 36px;
+    > div.weather {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+
+      >img.weather-image{
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+
+      >div.weather-data{
+        align-self: center;
+      }
+    }
+  }
+
   > form {
     display: flex;
 
@@ -36,7 +55,7 @@ main {
       padding: 4px 12px 4px 12px;
       font-size: 0.8rem;
 
-      &:focus{
+      &:focus {
         outline: none;
         border: 1px solid black;
         border-right: none;
