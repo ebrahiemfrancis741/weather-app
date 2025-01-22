@@ -27,12 +27,20 @@ main {
   min-height: 100vh;
   padding: 24px;
 
+  >p.app-description{
+    width: 48ch;
+    margin: 36px 0;
+  }
+
   > div.weather-container {
     margin-top: 36px;
     > div.weather {
       display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin: 36px 0;
+      border: 1px solid rgb(200, 200, 200);
+      padding: 16px;
+      background-color: white;
 
       >img.weather-image{
         width: 200px;
@@ -54,6 +62,7 @@ main {
       border-right: none;
       padding: 4px 12px 4px 12px;
       font-size: 0.8rem;
+      background-color: white;
 
       &:focus {
         outline: none;
