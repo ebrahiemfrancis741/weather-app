@@ -69,9 +69,23 @@ function createWeatherElement(data) {
   conditions.textContent = data.conditions;
 }
 
+function btnToggleEventHandler() {
+  let btnToggle = document.querySelector("#btn-toggle");
+  btnToggle.addEventListener("click", () => {
+    if (btnToggle.getAttribute("data-ebs-toggle-value") == "0") {
+      btnToggle.classList.add("active");
+      btnToggle.setAttribute("data-ebs-toggle-value", "1");
+    } else if (btnToggle.getAttribute("data-ebs-toggle-value") == "1") {
+      btnToggle.classList.remove("active");
+      btnToggle.setAttribute("data-ebs-toggle-value", "0");
+    }
+  });
+}
+
 function setupEventHandlers() {
   btnSearchEventHandler();
   formSearchEventHandler();
+  btnToggleEventHandler();
 }
 
 export { setupEventHandlers };
