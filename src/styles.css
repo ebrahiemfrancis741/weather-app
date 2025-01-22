@@ -54,6 +54,13 @@ main {
         border-radius: 50%;
         background-color: black;
       }
+
+      &.active {
+        &::before {
+          background-color: rgb(0, 0, 120);
+          transform: translateX(30px);
+        }
+      }
     }
 
     > label.label-toggle {
