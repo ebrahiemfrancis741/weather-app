@@ -27,7 +27,14 @@ main {
   min-height: 100vh;
   padding: 24px;
 
-  >p.app-description{
+  > p.input-error {
+    margin-left: 4px;
+    color: red;
+    font-size: 0.7rem;
+    height: 25px;
+  }
+
+  > p.app-description {
     width: 48ch;
     margin: 36px 0;
   }
@@ -42,13 +49,13 @@ main {
       padding: 16px;
       background-color: white;
 
-      >img.weather-image{
+      > img.weather-image {
         width: 200px;
         height: 200px;
         border: 1px solid black;
       }
 
-      >div.weather-data{
+      > div.weather-data {
         align-self: center;
       }
     }

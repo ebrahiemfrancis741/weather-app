@@ -5,9 +5,16 @@ function btnSearchEventHandler() {
   let btnSearch = document.querySelector("#btnSearch");
   let textLocation = document.querySelector("#textLocation");
   let weatherContainer = document.querySelector(".weather-container");
+  let inputError = document.querySelector(".input-error");
+
   btnSearch.addEventListener("click", async () => {
     try {
       let data = await getRequiredWeatherData(textLocation.value);
+      if (data == undefined) {
+        inputError.textContent = `${textLocation.value} is not a valid location`;
+      } else {
+        inputError.textContent = "";
+      }
       weatherContainer.replaceChildren();
       for (let i = 0; i < data.length; i++) {
         createWeatherElement(data[i]);

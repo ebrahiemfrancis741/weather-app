@@ -19,6 +19,9 @@ async function getWeatherOfLocation(location) {
 */
 async function getRequiredWeatherData(location) {
   let data = await getWeatherOfLocation(location);
+  if(data == undefined){
+    return undefined;
+  }
   let requiredData = [];
   for (let i = 0; i < 7; i++) {
     requiredData.push({
