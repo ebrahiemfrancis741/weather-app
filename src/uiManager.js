@@ -12,6 +12,7 @@ function btnSearchEventHandler() {
       let data = await getRequiredWeatherData(textLocation.value);
       if (data == undefined) {
         inputError.textContent = `${textLocation.value} is not a valid location`;
+        return;
       } else {
         inputError.textContent = "";
       }
