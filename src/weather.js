@@ -19,7 +19,7 @@ async function getWeatherOfLocation(location) {
 */
 async function getRequiredWeatherData(location) {
   let data = await getWeatherOfLocation(location);
-  if(data == undefined){
+  if (data == undefined) {
     return undefined;
   }
   let requiredData = [];

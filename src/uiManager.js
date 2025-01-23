@@ -4,7 +4,6 @@ import { getImage } from "./image";
 function btnSearchEventHandler() {
   let btnSearch = document.querySelector("#btnSearch");
   let textLocation = document.querySelector("#textLocation");
-  let weatherContainer = document.querySelector(".weather-container");
   let inputError = document.querySelector(".input-error");
 
   btnSearch.addEventListener("click", async () => {
@@ -16,14 +15,19 @@ function btnSearchEventHandler() {
       } else {
         inputError.textContent = "";
       }
-      weatherContainer.replaceChildren();
-      for (let i = 0; i < data.length; i++) {
-        createWeatherElement(data[i]);
-      }
+      displayAllRequiredData(data);
     } catch (error) {
       console.log(error);
     }
   });
+}
+
+function displayAllRequiredData(data) {
+  let weatherContainer = document.querySelector(".weather-container");
+  weatherContainer.replaceChildren();
+  for (let i = 0; i < data.length; i++) {
+    createWeatherElement(data[i]);
+  }
 }
 
 /*
@@ -65,6 +69,7 @@ function createWeatherElement(data) {
   date.textContent = data.date;
   weatherElementData.appendChild(temperature);
   temperature.textContent = `${data.temperature} \u00B0C`;
+  temperature.classList.add("weather-data-temperature");
   weatherElementData.appendChild(conditions);
   conditions.textContent = data.conditions;
 }
@@ -79,7 +84,37 @@ function btnToggleEventHandler() {
       btnToggle.classList.remove("active");
       btnToggle.setAttribute("data-ebs-toggle-value", "0");
     }
+    toggleDegrees();
   });
+}
+
+/*
+  Toggles the display of the temperature to 
+  either celsius or farenheit
+*/
+function toggleDegrees() {
+  let btnToggle = document.querySelector("#btn-toggle");
+  let toggleState = btnToggle.getAttribute("data-ebs-toggle-value");
+  let temperatureElementList = document.querySelectorAll(
+    ".weather-data-temperature"
+  );
+  let temperature;
+  for (let i = 0; i < temperatureElementList.length; i++) {
+    // get the temperature value
+    temperature = parseFloat(
+      temperatureElementList.item(i).textContent.split(" ")
+    );
+    // if temperatures should be in celsius
+    if (toggleState == "0") {
+      // convert to celsius
+      temperature = (temperature - 32) * (5 / 9);
+      temperatureElementList.item(i).textContent = `${temperature.toFixed(1)} \u00B0C`;
+    } else {
+      // if temperatures should be in farenheit
+      temperature = temperature * (9 / 5) + 32;
+      temperatureElementList.item(i).textContent = `${temperature.toFixed(1)} \u00B0F`;
+    }
+  }
 }
 
 function setupEventHandlers() {
