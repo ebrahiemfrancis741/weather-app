@@ -12,8 +12,8 @@
     <main>
       <p class="app-description">
         This app shows basic weather forecast information for the current and
-        next six days for any city. Please make sure to enter a correct location
-        for the best results!
+        next six days for any location. Please make sure to enter a correct
+        location for the best results!
       </p>
       <p class="input-error"></p>
       <form id="formSearch">
@@ -26,13 +26,32 @@
         <button type="button" id="btnSearch">
           <img src="./icons/search_24dp.svg" />
         </button>
-        <img id="icon-loading-search" class="icon-loading" src="./icons/autorenew_80dp.svg">
+        <img
+          id="icon-loading-search"
+          class="icon-loading"
+          src="./icons/autorenew_80dp.svg"
+        />
       </form>
       <div class="toggle-container">
-        <button type="button" id="btn-toggle" class="toggle" data-ebs-toggle-value="0"></button>
-        <label class="label-toggle"> Toggle Celsius/<span>Farenheit</span></label>
+        <button
+          type="button"
+          id="btn-toggle"
+          class="toggle"
+          data-ebs-toggle-value="0"
+        ></button>
+        <label class="label-toggle">
+          Toggle Celsius/<span>Farenheit</span></label
+        >
       </div>
       <div class="weather-container"></div>
     </main>
+    <footer>
+      <p>
+        Weather data from
+        <a href="https://www.visualcrossing.com/">visual crossing</a>. Images
+        from <a href="https://giphy.com/">giphy</a>. Icons from
+        <a href="https://fonts.google.com/icons">Google Fonts</a>
+      </p>
+    </footer>
   </body>
 </html>
