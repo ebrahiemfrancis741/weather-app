@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <header>
+      <h1>Weather.app</h1>
+    </header>
+    <main>
+      <p class="app-description">
+        This app shows basic weather forecast information for the current and
+        next six days for any location. Please make sure to enter a correct
+        location for the best results!
+      </p>
+      <p class="input-error"></p>
+      <form id="formSearch">
+        <input
+          type="text"
+          id="textLocation"
+          placeholder="Search for a location"
+          required
+        />
+        <button type="button" id="btnSearch">
+          <img src="0d4143223ae04fe49b99.svg" />
+        </button>
+        <img
+          id="icon-loading-search"
+          class="icon-loading"
+          src="6ac4a902a375f4cd0a36.svg"
+        />
+      </form>
+      <div class="toggle-container">
+        <button
+          type="button"
+          id="btn-toggle"
+          class="toggle"
+          data-ebs-toggle-value="0"
+        ></button>
+        <label class="label-toggle">
+          Toggle Celsius/<span>Farenheit</span></label
+        >
+      </div>
+      <div class="weather-container"></div>
+    </main>
+    <footer>
+      <p>
+        Weather data from
+        <a href="https://www.visualcrossing.com/">visual crossing</a>. Images
+        from <a href="https://giphy.com/">giphy</a>. Icons from
+        <a href="https://fonts.google.com/icons">Google Fonts</a>
+      </p>
+    </footer>
+  </body>
+</html>
