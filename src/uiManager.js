@@ -51,6 +51,8 @@ function createWeatherElement(data) {
   let date = document.createElement("p");
   let temperature = document.createElement("p");
   let conditions = document.createElement("p");
+  let btnToggle = document.querySelector("#btn-toggle");
+  let toggleState = btnToggle.getAttribute("data-ebs-toggle-value");
 
   weatherContainer.appendChild(weatherElement);
   weatherElement.classList.add("weather");
@@ -68,7 +70,15 @@ function createWeatherElement(data) {
   weatherElementData.appendChild(date);
   date.textContent = data.date;
   weatherElementData.appendChild(temperature);
-  temperature.textContent = `${data.temperature} \u00B0C`;
+
+  // if we should display farenheit
+  if (toggleState != "0") {
+    let farenheit = parseFloat(data.temperature) * (9 / 5) + 32;
+    temperature.textContent = `${farenheit.toFixed(1)} \u00B0F`;
+  } else {
+    temperature.textContent = `${data.temperature} \u00B0C`;
+  }
+
   temperature.classList.add("weather-data-temperature");
   weatherElementData.appendChild(conditions);
   conditions.textContent = data.conditions;
@@ -108,11 +118,15 @@ function toggleDegrees() {
     if (toggleState == "0") {
       // convert to celsius
       temperature = (temperature - 32) * (5 / 9);
-      temperatureElementList.item(i).textContent = `${temperature.toFixed(1)} \u00B0C`;
+      temperatureElementList.item(i).textContent = `${temperature.toFixed(
+        1
+      )} \u00B0C`;
     } else {
       // if temperatures should be in farenheit
       temperature = temperature * (9 / 5) + 32;
-      temperatureElementList.item(i).textContent = `${temperature.toFixed(1)} \u00B0F`;
+      temperatureElementList.item(i).textContent = `${temperature.toFixed(
+        1
+      )} \u00B0F`;
     }
   }
 }
