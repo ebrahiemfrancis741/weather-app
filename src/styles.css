@@ -112,6 +112,16 @@ main {
   > form {
     display: flex;
 
+    > img.icon-loading {
+      visibility: hidden;
+
+      &.active {
+        visibility: visible;
+        transform: rotate(3000000deg);
+        transition: 5000s;
+      }
+    }
+
     > input {
       border: 1px solid rgb(200, 200, 200);
       border-right: none;

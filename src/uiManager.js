@@ -5,16 +5,20 @@ function btnSearchEventHandler() {
   let btnSearch = document.querySelector("#btnSearch");
   let textLocation = document.querySelector("#textLocation");
   let inputError = document.querySelector(".input-error");
+  let loadingIcon = document.querySelector("#icon-loading-search");
 
   btnSearch.addEventListener("click", async () => {
     try {
+      loadingIcon.classList.toggle("active");
       let data = await getRequiredWeatherData(textLocation.value);
       if (data == undefined) {
         inputError.textContent = `${textLocation.value} is not a valid location`;
+        loadingIcon.classList.toggle("active");
         return;
       } else {
         inputError.textContent = "";
       }
+      loadingIcon.classList.toggle("active");
       displayAllRequiredData(data);
     } catch (error) {
       console.log(error);
@@ -59,7 +63,6 @@ function createWeatherElement(data) {
   weatherElement.appendChild(weatherElementImage);
   weatherElementImage.classList.add("weather-image");
   getImage(`weather: ${data.icon}`).then((result) => {
-    console.log(result.data.images.original.url);
     weatherElementImage.src = result.data.images.original.url;
   });
   weatherElement.appendChild(weatherElementData);
